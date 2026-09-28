@@ -42,9 +42,8 @@ def paragraph(state: StateBlock, startLine: int, endLine: int, silent: bool) -> 
         # here so the line can open a block in an outer container (issue
         # #434). At the same container level a type-7 sequence still does not
         # interrupt the paragraph, which the terminator rules below handle.
-        if (
-            state.sCount[nextLine] < state.blkIndent
-            and html_block_starts(state, nextLine)
+        if state.sCount[nextLine] < state.blkIndent and html_block_starts(
+            state, nextLine
         ):
             break
 

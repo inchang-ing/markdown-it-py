@@ -13,11 +13,7 @@ def md() -> MarkdownIt:
 def test_html_block_under_indented_closes_list(md: MarkdownIt) -> None:
     """A type-7 HTML block at outer indentation ends the list, like cmark."""
     assert md.render("## Opts\n\n- a\n<br>\n## Next\n") == (
-        "<h2>Opts</h2>\n"
-        "<ul>\n"
-        "<li>a</li>\n"
-        "</ul>\n"
-        "<br>\n## Next\n"
+        "<h2>Opts</h2>\n<ul>\n<li>a</li>\n</ul>\n<br>\n## Next\n"
     )
 
 
